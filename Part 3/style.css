@@ -1,0 +1,10 @@
+body {
+	background-color: #dedede;
+}
+h1 {
+	font-family: Arial;
+}
+.textinput {
+	width:350px;
+	height: 60px;
+}

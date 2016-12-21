@@ -14,18 +14,57 @@
 */
 // write your code here ...
 
+function newFriend(name,age,edu,nationality){
+	return {
+		name:name,
+		age:age,
+		edu:edu,
+		nationality:nationality
+	}
+}
 
+var ahmad= newFriend("Ahmad", 23, "SE", "Syrian");
+var maher= newFriend("Maher", 25, "Pharmacy", "Syrian");
 
+function showFriend(obj){
+	return obj.name + " with the age of " + obj.age + " and with " + obj.edu + " education";
+}
+
+// we will pass friend objects inside an array
+var frinedsArr=[ahmad,maher,ahmad]; 
+function avergeStudents(arr){
+	var sum=0;
+	arr.forEach(function(elem){
+		sum+= elem.age;
+	})
+	return sum/arr.length;
+}
 
 /*
  b-create a function called rangeSquared in which it will accept two parameters, and will output the squared numbers between these two parameter if the number is even 
 	in order to square the numbers create a function called square and call it inside rangeSquared function
 	rangeSquared(2)// [4];
 	rangeSquared(3) // null
-	rangeSquared(2,10)// [4,16,12,16,100];
+	rangeSquared(2,10)// [4,16,36,64,100];
 */
 // write your code here ...
 
+function squareNum(num){
+	return num*num;
+}
+
+function rangeSquared(from, to){
+	var result=[];
+	if(to === undefined){
+		to=from;
+	}
+	for(var i=from; i<=to; i++){
+		if(i % 2 === 0){
+			result.push(squareNum(i));
+		}
+	}
+	return result.length > 0 ? result : null;
+}
 
 
 
@@ -36,3 +75,19 @@
 
 // write your code here ....
 
+function leadersArr(arr){
+	var result=[];
+	for(var i=0; i<arr.length; i++){
+		var flag=true;
+		for(var j = i; j < arr.length; j++){
+			if(arr[j]>arr[i]){
+				flag=false;
+				break;
+			}
+		}
+		if(flag){
+			result.push(arr[i]);
+		}
+	}
+	return result;
+}

@@ -32,3 +32,48 @@
  */
 
 //writ your code here .....
+
+function newPlayer(name, age= null, position= null, level= null, availability= false){
+	return {
+		name:name,
+		age: age,
+		position: position,
+		level: level,
+		availability:availability,
+		addInfo: addInfoFunc,
+		increaseLevel: increaseLevelFunc,
+		isAvailable: isAvailableFunc
+	}
+}
+
+var addInfoFunc= function(age, position, level, availability ){
+	this.age=age;
+	this.position=position;
+	this.level=level;
+	this.availability=availability;
+	return "player info updated! HOAH!"
+}
+
+var increaseLevelFunc= function(num){
+	this.level=num;
+	return "player info updated! YEAH!";
+}
+
+var isAvailableFunc=function(){
+	return this.availability;
+}
+
+var p1=newPlayer("Montaser", 23, "Worrior", 6, true);
+var p2=newPlayer("Maher", 25, "Defence", 5, true);
+var p3=newPlayer("Ahma", 23, "Attack", 3, true);
+var p4=newPlayer("Tahseen", 32, "Middle", 1, false);
+var arrayOfPlayers=[p1,p2,p3,p4];
+
+function decrease30(arr){
+	arr.forEach((elem,i)=> elem.age > 30 ? --elem.level: null);
+	return"Players updated";
+}
+
+function sortPlayerBy(arr, key){
+	return arr.sort((a,b)=> a[key] > b[key]);
+}
